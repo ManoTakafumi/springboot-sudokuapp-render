@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ナンプレ</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>ナンプレ</h2>
+        <form th:action="@{/puzzles/solve}" method="post" onsubmit="return buildAnswer()">
+            <input type="hidden" name="puzzleId" th:value="${puzzle.id}"/>
+            <input type="hidden" name="startTime" th:value="${startTime}"/>
+            <input type="hidden" id="answer" name="answer" />
+
+            <table>
+                <tr th:each="i : ${#numbers.sequence(0,8)}">
+                    <th:block th:each="j : ${#numbers.sequence(0,8)}">
+                        <td class="cell"
+                                th:classappend="${(i % 3 == 0) ? ' top' : ''} +
+                                                ${(j % 3 == 0) ? ' left' : ''} +
+                                                ${(i == 8) ? ' bottom' : ''} +
+                                                ${(j == 8) ? ' right' : ''}">
+                            <input type="text" name="cell"
+                                th:value="${grid[i][j] != 0 ? grid[i][j] : ''}"
+                                maxlength="1" size="1" />
+                        </td>
+                    </th:block>
+                </tr>
+            </table>
+            
+            <button type="submit">送信</button>
+        </form>
+    </div>
+
+    <script>
+        function buildAnswer() {
+            const cells = document.getElementsByName('cell');
+            let answer = '';
+            for (let i = 0; i < cells.length; i++) {
+                let val = cells[i].value.trim();
+                answer += val === '' ? '0' : val;
+            }
+            document.getElementById('answer').value = answer;
+            return true;
+        }
+    </script>
+</body>
+</html> 
+
+<!-- th:value="${puzzle.question[i * 9 + j] != '0' ? puzzle.question[i * 9 + j] : ''}" -->

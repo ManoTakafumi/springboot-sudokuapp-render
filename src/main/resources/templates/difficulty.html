@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>難易度選択</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>難易度を選んでください</h2>
+        <form th:action="@{/puzzles/play}" method="get">
+            <button type="submit" name="difficulty" value="EASY">簡単</button>
+            <button type="submit" name="difficulty" value="NORMAL">普通</button>
+            <button type="submit" name="difficulty" value="HARD">難しい</button>
+        </form>
+
+        <hr>
+        <div class="nav-buttons">
+            <a th:href="@{/puzzles/mypage}">マイページ</a> |
+            <a th:href="@{/puzzles/ranking}">ランキング</a> |
+            <form th:action="@{/logout}" method="post" class="logout-form">
+                <button type="submit" class="logout-button">ログアウト</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

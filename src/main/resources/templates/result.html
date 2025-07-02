@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>解答結果</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <h2 th:if="${correct}">正解です！おめでとうございます！</h2>
+        <h2 th:if="${!correct}">残念、不正解です。</h2>
+        <p th:text="'回答時間: ' + ${time} + ' 秒'"></p>
+        <a href="/puzzles/select">別の問題を解く</a>
+    </div>
+</body>
+</html>

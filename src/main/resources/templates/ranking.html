@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ランキング</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>ランキング(タイムが早い順)</h2>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>ユーザー</th><th>問題ID</th><th>難易度</th><th>解答時間</th></tr>
+                <tr th:each="r : ${records}">
+                    <td th:text="${r.user.username}"></td>
+                    <td th:text="${r.puzzle.id}"></td>
+                    <td th:text="${r.puzzle != null ? r.puzzle.difficulty : 'N/A'}"></td>
+                    <td th:text="${r.time}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <a th:href="@{/puzzles/select}"><button type="button">難易度選択</button></a>
+            <a th:href="@{/puzzles/mypage}"><button type="button">マイページ</button></a>
+        </div>
+    </div>
+</body>
+</html>
