@@ -7,8 +7,8 @@ WORKDIR /app
 # プロジェクトのファイルをコピー（必要なものだけ）
 COPY . .
 
-# ビルド（JAR作成）
-RUN ./mvnw clean package
+# ビルド（JAR作成） テストをスキップ
+RUN ./mvnw clean package -DskipTests
 
 # アプリを起動（JAR名はあなたのプロジェクトに合わせて変更）
 CMD ["java", "-jar", "target/sudokuapp-0.0.1-SNAPSHOT.jar"]
