@@ -11,4 +11,4 @@ COPY . .
 RUN ./mvnw clean package -DskipTests
 
 # アプリを起動（JAR名はあなたのプロジェクトに合わせて変更）
-CMD ["java", "-jar", "target/sudokuapp-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/sudokuapp0621-0.0.1-SNAPSHOT.jar"]
