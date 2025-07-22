@@ -36,3 +36,38 @@
 | デプロイ      | Render (無料クラウドホスティング) | 
 
 ---
+
+## デプロイについて(Render)
+
+このアプリは無料クラウドサービスの Render 上にデプロイされています。
+Render では以下のような構成で動作しています。
+
+- Web Service (Spring Bootアプリ)
+- PostgreSQL (ユーザーデータ、数独の記録などを保存)
+- ポート: `8080`
+- Health Check Path: `/`
+- 無料プラン使用のため、事前に制作側で起動する必要がある。
+
+---
+
+## ディレクトリ構成 (一部)
+
+sudokuapp/
+|-----src/
+| └---main/
+| ┝---java/com/example/sudokuapp/
+||┝---controller/
+||┝---entity/
+||┝---repository/
+||┝---service/
+|| └--SudokuAppApplication.java
+| └---resources/
+|┝----static/
+|┝----templates/
+|└----application.properties
+
+## 補足
+
+- 本アプリは就職活動向けの成果物として制作しました。
+- データベース構成やログイン機能など、実務を意識した設計になっています。
+- 現在は基本機能のみ実装済みで、今後「タイムアタック」や「スコア保存」なども検討中です。
