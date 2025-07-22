@@ -53,18 +53,18 @@ Render では以下のような構成で動作しています。
 ## ディレクトリ構成 (一部)
 
 sudokuapp/
-|-----src/
-| └---main/
-| ┝---java/com/example/sudokuapp/
-||┝---controller/
-||┝---entity/
-||┝---repository/
-||┝---service/
-|| └--SudokuAppApplication.java
-| └---resources/
-|┝----static/
-|┝----templates/
-|└----application.properties
+├── src/
+│ └── main/
+│ ├── java/com/example/sudokuapp/
+│ │ ├── controller/
+│ │ ├── entity/
+│ │ ├── repository/
+│ │ ├── service/
+│ │ └── SudokuAppApplication.java
+│ └── resources/
+│ ├── static/
+│ ├── templates/
+│ └── application.properties
 
 ## 補足
 
