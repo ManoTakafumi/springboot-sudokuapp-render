@@ -52,6 +52,7 @@ Render では以下のような構成で動作しています。
 
 ## ディレクトリ構成 (一部)
 
+```
 sudokuapp/
 ├── src/
 │ └── main/
@@ -65,6 +66,8 @@ sudokuapp/
 │ ├── static/
 │ ├── templates/
 │ └── application.properties
+
+```
 
 ## 補足
 
